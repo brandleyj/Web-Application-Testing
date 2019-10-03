@@ -1,11 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Display from "./Components/Display";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
 	return (
 		<div className="App">
 			<h1>At Bat</h1>
+			<Display />
+			<Dashboard />
 		</div>
 	);
 }
