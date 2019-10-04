@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Display from "./Components/Display";
 import Dashboard from "./Components/Dashboard";
 
 function App() {
+	const [strike, setStrike] = useState(0);
+	const [ball, setBall] = useState(0);
+
 	return (
 		<div className="App">
-			<h1>At Bat</h1>
-			<Display />
-			<Dashboard />
+			<Display strike={strike} ball={ball} />
+			<Dashboard
+				strike={strike}
+				ball={ball}
+				setStrike={setStrike}
+				setBall={setBall}
+			/>
 		</div>
 	);
 }

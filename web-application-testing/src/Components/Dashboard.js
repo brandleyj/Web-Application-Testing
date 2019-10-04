@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const addStrike = currentStrikes => {
 	if (currentStrikes >= 2) {
 		return 0;
-	} else return currentStrikes + 1;
+	} else {
+		return currentStrikes + 1;
+	}
 };
 
 export const addBall = currentBalls => {
 	if (currentBalls >= 3) {
 		return 0;
-	} else return currentBalls + 1;
+	} else {
+		return currentBalls + 1;
+	}
 };
 
 export const addFoul = currentStrikes => {
@@ -21,19 +25,24 @@ export const addFoul = currentStrikes => {
 };
 
 export const addHit = currentValue => {
-	return (currentValue = 0);
+	return currentValue;
 };
 
-function Dashboard() {
-	const [strike, setStrike] = useState(0);
-	const [ball, setBall] = useState(0);
+export default function Dashboard(props) {
 	return (
 		<div>
-			<button onClick={() => setStrike(addStrike(strike))}>Strike</button>
-			<button onClick={() => setBall(addBall(ball))}>Ball</button>
-			<button onClick={() => setStrike(addFoul(strike))}>Foul</button>
+			<button onClick={() => props.setStrike(addStrike(props.strike))}>
+				Strike
+			</button>
+			<button onClick={() => props.setBall(addBall(props.ball))}>Ball</button>
+			<button onClick={() => props.setStrike(addFoul(props.strike))}>
+				Foul
+			</button>
 			<button
-				onClick={(() => setStrike(addHit(strike)), setBall(addHit(ball)))}
+				onClick={() => {
+					props.setStrike(addHit(0));
+					props.setBall(addHit(0));
+				}}
 			>
 				Hit
 			</button>

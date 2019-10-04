@@ -1,14 +1,13 @@
 import React from "react";
-import { currentStrikes, currentBalls } from "./Dashboard";
 
-export default function Display() {
+export default function Display(props) {
 	return (
 		<div>
 			<h1>Current Batter</h1>
-			<p>Ball</p>
-			<p>{currentBalls}</p>
-			<p>Strikes</p>
-			<p>{currentStrikes}</p>
+			<p>Ball: </p>
+			<p>{props.ball}</p>
+			<p>Strikes: </p>
+			<p>{props.strike}</p>
 		</div>
 	);
 }
